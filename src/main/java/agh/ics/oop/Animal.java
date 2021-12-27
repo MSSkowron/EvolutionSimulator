@@ -29,7 +29,7 @@ public class Animal implements IMapElement{
         this.numberOfChildren=0;
     }
 
-    //ANIMAL POWSTAJE Z ROZMNOZENIA.
+    //ZWIERZE POWSTAŁE Z ROZMNOZENIA.
     public Animal(IWorldMap map,Vector2d initialPosition,int energy,Genes genes){
         this.map=map;
         this.direction=randomDirection();

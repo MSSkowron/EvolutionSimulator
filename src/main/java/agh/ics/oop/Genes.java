@@ -5,6 +5,7 @@ import java.util.Arrays;
 public class Genes {
     private final int[] genes;
 
+    //GEN POWSTANIE JAKO LOSOWE 32 LICZBY.
     public Genes(){
         genes = new int[32];
         for(int i = 0;i<32;i++){
@@ -13,6 +14,7 @@ public class Genes {
         Arrays.sort(genes);
     }
 
+    //GEN POWSTANIE JAKO POWIAZANIE Z GENAMI RODZICOW.
     public Genes(int[] fatherGenes,int fatherEnergy,int[] motherGenes,int motherEnergy){
         genes = new int[32];
         int energySum = fatherEnergy + motherEnergy;

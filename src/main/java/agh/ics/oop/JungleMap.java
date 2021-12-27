@@ -56,7 +56,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
         initialPlacement(initialNumberOfAnimals);
     }
 
-    //POCZĄTKOWY SPAWN ZWIERZĄT NA MAPIE.
+    //POCZĄTKOWY SPAWN ZWIERZAT NA MAPIE.
     public void initialPlacement(int number){
         LinkedList<Vector2d> ll = getFreePositions();
         for(int i = 0;i<number;i++){
@@ -67,7 +67,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
         }
     }
 
-    //USUWANIE MARTWYCH ZWIERZĄT
+    //USUWANIE MARTWYCH ZWIERZAT.
     public boolean removeDeadAnimals() {
         day += 1;
         Iterator<Animal> iterator = animalsList.iterator();
@@ -89,7 +89,6 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
     }
 
     //PORUSZENIE SIE KAZDYM ZE ZWIERZĄT
-    //Idąc po secie miałbym modification error bo modyfikowalibyśmy set zmieniając pozycje animala jesli ją zmieni.
     public void randomMovesAnimals() {
         for (Animal animal : animalsList) {
             animal.randomMove();
@@ -103,7 +102,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
         }
     }
 
-    //JEDZENIE TRAWKI.
+    //JEDZENIE TRAWY.
     public void eat() {
         Iterator<Grass> iterator = grassesList.iterator();
         while(iterator.hasNext()){
@@ -166,6 +165,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
         updateSets(toUpdate);
     }
 
+    //AKTUALIZACJA SETOW.
     private void updateSets(HashSet<Vector2d> toUpdate) {
         for(Vector2d position : toUpdate){
             SortedSet<Animal> newSet = new ConcurrentSkipListSet<>(cmp);
@@ -176,6 +176,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
         }
     }
 
+    //DZIECKO POWSTALE W SKUTEK ROZMNOZENIA.
     private Animal createChild(Animal father, Animal mother){
         int energy = (int) (0.25*father.getEnergy() + 0.25*mother.getEnergy());
         Genes genes  = new Genes(father.getGenes().getArray(),father.getEnergy(),mother.getGenes().getArray(),mother.getEnergy());
