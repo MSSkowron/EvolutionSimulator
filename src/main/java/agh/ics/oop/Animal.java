@@ -85,14 +85,14 @@ public class Animal implements IMapElement{
 
     public void randomMove() {
         int random = genes.getRandom();
-        if(random==0){
+        if(random == 0){
             this.move(MoveDirection.FORWARD);
         }
-        else if(random==4){
+        else if(random == 4){
             this.move(MoveDirection.BACKWARD);
         }
         else {
-            for(int i = 0;i<random;i++) {
+            for(int i = 0; i<random; i++) {
                 this.move(MoveDirection.RIGHT);
             }
         }
@@ -107,7 +107,7 @@ public class Animal implements IMapElement{
     }
 
     public void daySurvived(){
-        age +=1;
+        age += 1;
     }
 
     public void newChild(){

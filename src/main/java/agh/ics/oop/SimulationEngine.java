@@ -14,10 +14,10 @@ public class SimulationEngine implements IEngine,Runnable {
 
     public SimulationEngine(JungleMap map, GridPane gridPane, VBox gridData, int moveDelay) throws IllegalArgumentException{
         this.map = map;
-        this.gridPane=gridPane;
-        this.dataBox=gridData;
+        this.gridPane = gridPane;
+        this.dataBox = gridData;
         this.stopped = false;
-        this.moveDelay=moveDelay;
+        this.moveDelay = moveDelay;
     }
 
     public void startOrResume(){

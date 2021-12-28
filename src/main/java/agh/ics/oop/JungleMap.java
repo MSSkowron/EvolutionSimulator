@@ -49,7 +49,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
         this.lowerLeftBorder = new Vector2d(0,0);
         this.animals = new ConcurrentHashMap<>();
         this.grasses = new ConcurrentHashMap<>();
-        this.genotypes=new ConcurrentHashMap<>();
+        this.genotypes = new ConcurrentHashMap<>();
         this.animalsList = Collections.synchronizedList(new ArrayList<>());
         this.grassesList =Collections.synchronizedList(new ArrayList<>());
         calculateJungleBorders();
@@ -464,7 +464,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
     }
 
     //CALCULATORS
-    public Vector2d calculateRightPosition(Vector2d pos){
+    private Vector2d calculateRightPosition(Vector2d pos){
         int x;
         int y;
 
@@ -511,8 +511,8 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
                 upperRight = upperRight.subtract(new Vector2d(0,1));
             }
         }
-        lowerLeftJungle=lowerLeft;
-        upperRightJungle=upperRight;
+        lowerLeftJungle = lowerLeft;
+        upperRightJungle = upperRight;
     }
 
     //COMPARATOR
