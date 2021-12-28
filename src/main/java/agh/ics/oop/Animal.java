@@ -29,7 +29,7 @@ public class Animal implements IMapElement{
         this.numberOfChildren=0;
     }
 
-    //ZWIERZE POWSTAŁE Z ROZMNOZENIA.
+    //ZWIERZE POWSTALE Z ROZMNOZENIA.
     public Animal(IWorldMap map,Vector2d initialPosition,int energy,Genes genes){
         this.map=map;
         this.direction=randomDirection();
@@ -140,6 +140,14 @@ public class Animal implements IMapElement{
         return this.genes;
     }
 
+    public String getGenesString(){
+        return Arrays.toString(genes.getArray());
+    }
+
+    public boolean hasGenes(){
+        return true;
+    }
+
     //DISPLAY
     @Override
     public String toString() {
@@ -172,16 +180,6 @@ public class Animal implements IMapElement{
     @Override
     public void removeObserver(IPositionChangeObserver observer){
         observers.remove(observer);
-    }
-
-    @Override
-    public boolean hasGenome() {
-        return true;
-    }
-
-    @Override
-    public String getGenomeString() {
-        return Arrays.toString(genes.getArray());
     }
 
     private void positionChanged(Vector2d oldPosition,Vector2d newPosition,Animal animal){

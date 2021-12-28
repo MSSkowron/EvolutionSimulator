@@ -27,12 +27,12 @@ public class Grass implements IMapElement{
     }
 
     @Override
-    public boolean hasGenome() {
+    public boolean hasGenes() {
         return false;
     }
 
     @Override
-    public String getGenomeString() {
+    public String getGenesString() {
         return "";
     }
 

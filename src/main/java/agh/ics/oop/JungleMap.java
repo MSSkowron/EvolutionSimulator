@@ -56,7 +56,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
         initialPlacement(initialNumberOfAnimals);
     }
 
-    //POCZĄTKOWY SPAWN ZWIERZAT NA MAPIE.
+    //POCZATKOWY SPAWN ZWIERZAT NA MAPIE.
     public void initialPlacement(int number){
         LinkedList<Vector2d> ll = getFreePositions();
         for(int i = 0;i<number;i++){
@@ -88,7 +88,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
         return numberOfAliveAnimals == 0;
     }
 
-    //PORUSZENIE SIE KAZDYM ZE ZWIERZĄT
+    //PORUSZENIE SIE KAZDYM ZE ZWIERZAT
     public void randomMovesAnimals() {
         for (Animal animal : animalsList) {
             animal.randomMove();
@@ -135,17 +135,17 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
 
     //ROZMNAZANIE
     public void copulation() {
-        // Pozycje na których doszło do rozmnożenia. Muszę je później zaktualizować, żeby utrzymać elementy posortowane w danym Secie.
+        // toUpdate - Pozycje na ktorych doszlo do rozmnozenia. Musze je pozniej zaktualizowac, zeby utrzymac elementy posortowane w danym secie.
         HashSet<Vector2d> toUpdate = new HashSet<>();
         for(SortedSet<Animal> ss : animals.values()){
             if(ss!=null && ss.size()>=2){
                 int requiredEnergy = ss.first().getEnergy();
-                //Jeśli pierwsze i drugie zwierzę z największą ilością energii mają taką samą energie to potencjalnie może być więcej zwierząt o tej samej enerii co dwa
-                //pierwsze, a wtedy może dojść do większej ilości rozmnożeń na danej pozycji. Natomiast jeśli mają różną energię to rozmnażają się tylko te dwa pierwsze.
-                //Biore zwierzęta które będą potencjalnymi rodzicami czyli zwierzęta mające największą energie na pozycji lub dwa pierwsze.
+                //Jesli pierwsze i drugie zwierze z najwieksza iloscia energii maja taka sama energie to potencjalnie moze byc wiecej zwierzat o tej samej enerii co dwa
+                //pierwsze, a wtedy moze dojsc do wiekszej ilosci rozmnozen na danej pozycji. Natomiast jesli maja rozna energie to rozmnazaja sie tylko te dwa pierwsze.
+                //Biore zwierzeta ktore beda potencjalnymi rodzicami czyli zwierzeta majace najwieksza energie na pozycji lub dwa pierwsze.
                 LinkedList<Animal> parents = getAnimalsToCopulation(ss,requiredEnergy);
                 int i = 0;
-                //Rodziców biorę parami z parents.
+                //Rodzicow biore parami z parents.
                 while(i<parents.size() && i + 1 < parents.size()){
                     Animal mother = parents.get(i);
                     Animal father = parents.get(i+1);
@@ -190,7 +190,7 @@ public class JungleMap implements IWorldMap,IPositionChangeObserver {
         for(int i = lowerLeftBorder.x;i<=upperRightBorder.x;i++){
             for(int j = lowerLeftBorder.y;j<=upperRightBorder.y;j++){
                 Vector2d vector2d = new Vector2d(i,j);
-                //Wybieram tylko te pozycje, gdzie nie ma zwierzęcia oraz trawy.
+                //Wybieram tylko te pozycje, gdzie nie ma zwierzecia oraz trawy.
                 if(objectAt(vector2d)==null){
                     if(vector2d.precedes(upperRightJungle) && vector2d.follows(lowerLeftJungle)){
                         ll_jungleFreePositions.add(vector2d);

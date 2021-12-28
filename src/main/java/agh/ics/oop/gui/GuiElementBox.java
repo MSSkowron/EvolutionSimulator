@@ -24,13 +24,13 @@ public class GuiElementBox {
         circle.setCenterY(1.0f);
         circle.setRadius(Math.min(mapWidth,mapHeight)/3);
         circle.setFill(element.toColor());
-        if(element.hasGenome()){
+        if(element.hasGenes()){
             circle.setOnMouseClicked(event -> {
                 Alert a = new Alert(Alert.AlertType.INFORMATION);
                 a.setTitle("Animal genome");
                 a.setHeaderText("Animal genome is shown below.");
                 a.setWidth(200);
-                String genome = element.getGenomeString();
+                String genome = element.getGenesString();
                 a.setContentText(genome);
                 a.show();
             });

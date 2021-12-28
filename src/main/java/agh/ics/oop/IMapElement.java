@@ -11,9 +11,9 @@ public interface IMapElement {
 
     void removeObserver(IPositionChangeObserver observer);
 
-    boolean hasGenome();
+    boolean hasGenes();
 
-    String getGenomeString();
+    String getGenesString();
 
     @Override
     String toString();
